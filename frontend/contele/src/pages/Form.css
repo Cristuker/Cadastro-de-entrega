@@ -1,0 +1,20 @@
+div#container{
+    border: 0;
+    width: 100%;
+    height: 600px;
+    background-color: darkgray;
+}
+Form{
+    width: 400px;
+    height: 300px;
+    background-color: red;
+}
+
+Form h1{
+    color: blue;
+}
+
+Form input{
+    margin: 5px;
+    border-radius: 5px;
+}
