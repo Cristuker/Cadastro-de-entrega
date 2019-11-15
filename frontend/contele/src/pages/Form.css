@@ -1,4 +1,4 @@
-div#container{
+form#container{
     margin-top: 10px;
     display: flex;
     width: 100%;
@@ -16,18 +16,18 @@ div.section {
     flex-direction: column;
 }
 
-div.section form{
+div.section div{
     max-width: 100%;
     max-height: 50%;
 }
 
-div.section form h1{
+div.section div h1{
     margin-top: 20px;
     font-size: x-large;
     color: #1a237a;
 }
 
-div.section form input.inpuText {
+div.section div input.inpuText {
     display: flex;
     flex-direction: column;
     color: #b7b7b7;
@@ -41,12 +41,12 @@ div.section form input.inpuText {
  
 }
 
-div.section form .selecteds{
+div.section div .selecteds{
     display: flex;
     flex-direction: row;
 }
 
-div.section form select{
+div.section div select{
     display: flex;
     padding: 4px;
     background-color: white;
@@ -59,7 +59,7 @@ div.section form select{
     flex-wrap: wrap;
 }
 
-div.section form#CheckBox input.box{
+div.section div#CheckBox input.box{
 
     margin: 10px;
     border: 1px solid #b7b7b7; 
