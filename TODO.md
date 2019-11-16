@@ -5,7 +5,9 @@
     [ ] - Estilizar botão
     [ ] - Checkbox personalizada
     [ ] - Dimensões do Form e de alguns inputs
-    [ ] - Refazer selects (https://react-select.com/home)
+    [ ] - Setar select default
+    [ ] - Arrumar labels do checkbox
+    [ ] - Unitilizar select relacionado ao checkbox em "Check the box below"
 [ ] - Validar form com JS
 [ ] - Fazer rotas da aplicação com NodeJS e express
 [ ] - Revisar todo o código
