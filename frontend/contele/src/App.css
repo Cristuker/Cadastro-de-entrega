@@ -1,8 +1,10 @@
 div#logo{
+  float: left;
   max-width: 200px;
   max-height: 200px;
-  margin-left: 20px;
-  margin-top: 50px;
+  margin-left: 100px;
+  margin-top: 15px;
+  margin-bottom: 10px;
 }
 div img{
   max-width: 100%;

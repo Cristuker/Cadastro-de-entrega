@@ -1,27 +1,35 @@
+*{
+    padding:0;
+    margin:0;
+}
+
 form#container{
-    margin-top: 10px;
     display: flex;
+    margin-top: 10px;
     width: 100%;
     height: 600px;
-    background-color: #cccccc;
+    background-color: #f7f7f7;
     flex-wrap: wrap;
-    padding: 15px;
     font-family: 'Lato', sans-serif;
 }
 
 div.section {
-    width: 50%;
+    margin-left: 100px;
+    width: 40%;
     height: 300px;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
 }
 
 div.section div{
     max-width: 100%;
     max-height: 50%;
+    
 }
 
 div.section div h1{
+    padding: 7px;
     margin-top: 20px;
     font-size: x-large;
     color: #1a237a;
@@ -29,32 +37,38 @@ div.section div h1{
 
 div.section div input.inpuText {
     display: flex;
-    flex-direction: column;
+    
     color: #b7b7b7;
     border: 1px solid #b7b7b7; 
-    padding: 4px;
-    margin: 5px;
+    padding: 5px;
     margin-bottom: 15px;
     height: 20px;
-    width: 50%;
+    width: 100%;
     border-radius:10px;
+    
  
 }
 
 div.section div .selecteds{
     display: flex;
     flex-direction: row;
+    padding-top: 5px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+
 }
 
 div.section div select{
     display: flex;
-    padding: 4px;
+    padding: 2px;
     background-color: white;
     color: #b7b7b7;
     flex-direction: column;
-    margin: 5px;
+    margin-top: 5px;
+    margin-left: 0;
+    margin-right: 7px;
     height: 25px;
-    width: 25%;
+    width: 100%;
     border-radius: 5px;
     flex-wrap: wrap;
 }
@@ -62,6 +76,22 @@ div.section div select{
 div.section div#CheckBox input.box{
     margin: 10px;
     border: 1px solid #b7b7b7; 
-    
 }
 
+form button.btn{
+    display:inline-flex;
+    flex-wrap: wrap;
+    text-decoration: none;
+    margin:20px;
+    border: 1px solid white;
+    font-size: 16px;
+    color: white;
+    background-color:#1a237a;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 15px 100px;
+}
+
+::-webkit-input-placeholder{
+    color:#b7b7b7;
+}
