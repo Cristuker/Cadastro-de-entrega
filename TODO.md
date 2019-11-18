@@ -7,5 +7,6 @@
     [x] - Dimensões do Form e de alguns inputs
     [x] - Setar select default
 [ ] - Validar form com JS
+[ ] - Console Web
 [ ] - Fazer rotas da aplicação com NodeJS e express
 [ ] - Revisar todo o código

@@ -36,8 +36,8 @@ div.section div h1{
 }
 
 div.section div input.inpuText {
-    display: flex;
-    
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
     color: #b7b7b7;
     border: 1px solid #b7b7b7; 
     padding: 5px;

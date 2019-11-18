@@ -2,6 +2,7 @@ import React,{ useState } from 'react';
 import './Form.css'
 function Form() {
     
+   
     
 
     // Contact Information
@@ -23,7 +24,7 @@ function Form() {
     const [billingCity,setBillingCity] = useState('');
     const [billingState,setBillingState] = useState('');
     const [billingzipCode,setBillingZipCode] = useState('');
-    const [sameAddres,setSameAddres] = useState(undefined);
+    const [sameAddres,setSameAddres] = useState(0);
     //Checkboxes
     const [vehicleWithFuel,setVehicleWithFuel] = useState(undefined);
     const [tracksOnBike,setTracksOnBike] = useState(undefined);
@@ -32,9 +33,36 @@ function Form() {
 
 
 
+
     async function handleSubmit(event){
         event.preventDefault();
-        console.log(trackersQuantities);
+        var Information ={
+            name: name,
+            lastname:lastname,
+            email: email,
+            phone: phone,
+            country: country,
+            language: language,
+
+            addresShipping1: addresShipping1,
+            addresShipping2: addresShipping2,
+            shippingCity: shippingCity,
+            shippingState: shippingState,
+            shippingzipCode: shippingzipCode,
+
+            addresBilling1: addresBilling1,
+            addresBilling2: addresBilling2,
+            billingCity: billingCity,
+            billingState: billingState,
+            billingzipCode: billingzipCode,
+            sameAddres: sameAddres,
+
+            vehicleWithFuel: vehicleWithFuel,
+            tracksOnBike: tracksOnBike,
+            identifyDrivers: identifyDrivers,
+            trackersQuantities: trackersQuantities
+        }    
+        
     }
 
     
@@ -99,29 +127,61 @@ function Form() {
 
             <div className="section"> 
                 <div action="" id="Billing">
-                    <h1>Billing Address:</h1>
-                    <input type="text" className="inpuText" value={addresBilling1} onChange={event => setAddresBilling1(event.target.value)} placeholder="Addres Line1:"/>
-                    <input type="text" className="inpuText" value={addresBilling2} onChange={event => setAddresBilling2(event.target.value)} placeholder="Addres Line2:"/>
-                    <div className="selecteds">
-                        <select name="City" value={billingCity} onChange={event => setBillingCity(event.target.value)} placeholder="City">
-                            <option selected="selected">City:</option>
-                            <option value="Guaruja">Guarujá</option>
-                            <option value="Santos">Santos</option>
-                            <option value="SaoVicente">São Vicente</option>
-                        </select>
-                        <select name="State" value={billingState} onChange={event => setBillingState(event.target.value)} placeholder="State">
-                            <option selected="selected">State:</option>
-                            <option value="SP">São Paulo</option>
-                            <option value="RJ">Rio de Janeiro</option>
-                            <option value="ES">Espirito Santos</option>
-                        </select>
-                        <select name="ZIP Code" value={billingzipCode} onChange={event => setBillingZipCode(event.target.value)} placeholder="ZIP Code">
-                            <option selected="selected">ZIP Code:</option>
-                            <option value="43223">43223</option>
-                            <option value="523987">523987</option>
-                            <option value="342342">342342</option>
-                        </select>
-                    </div>
+                    { sameAddres ?(
+                            <>
+                                <h1>Billing Address:</h1>
+                                <input type="text" className="inpuText" value={addresBilling1} onChange={event => setAddresBilling1(event.target.value)} placeholder="Addres Line1:"/>
+                                <input type="text" className="inpuText" value={addresBilling2} onChange={event => setAddresBilling2(event.target.value)} placeholder="Addres Line2:"/>
+                                <div className="selecteds">
+                                    <select name="City" value={billingCity} onChange={event => setBillingCity(event.target.value)} placeholder="City">
+                                        <option selected="selected">City:</option>
+                                        <option value="Guaruja">Guarujá</option>
+                                        <option value="Santos">Santos</option>
+                                        <option value="SaoVicente">São Vicente</option>
+                                    </select>
+                                    <select name="State" value={billingState} onChange={event => setBillingState(event.target.value)} placeholder="State">
+                                        <option selected="selected">State:</option>
+                                        <option value="SP">São Paulo</option>
+                                        <option value="RJ">Rio de Janeiro</option>
+                                        <option value="ES">Espirito Santos</option>
+                                    </select>
+                                    <select name="ZIP Code" value={billingzipCode} onChange={event => setBillingZipCode(event.target.value)} placeholder="ZIP Code">
+                                        <option selected="selected">ZIP Code:</option>
+                                        <option value="43223">43223</option>
+                                        <option value="523987">523987</option>
+                                        <option value="342342">342342</option>
+                                    </select>
+                                </div>
+                                </>
+                            ):(
+                                <>
+                                    <h1>Billing Address:</h1>
+                                    <input type="text" disabled className="inpuText" value={addresBilling1} onChange={event => setAddresBilling1(event.target.value)} placeholder="Addres Line1:"/>
+                                    <input type="text" disabled className="inpuText" value={addresBilling2} onChange={event => setAddresBilling2(event.target.value)} placeholder="Addres Line2:"/>
+                                    <div className="selecteds">
+                                        <select name="City" disabled value={billingCity} onChange={event => setBillingCity(event.target.value)} placeholder="City">
+                                            <option selected="selected">City:</option>
+                                            <option value="Guaruja">Guarujá</option>
+                                            <option value="Santos">Santos</option>
+                                            <option value="SaoVicente">São Vicente</option>
+                                        </select>
+                                        <select name="State" disabled value={billingState} onChange={event => setBillingState(event.target.value)} placeholder="State">
+                                            <option selected="selected">State:</option>
+                                            <option value="SP">São Paulo</option>
+                                            <option value="RJ">Rio de Janeiro</option>
+                                            <option value="ES">Espirito Santos</option>
+                                        </select>
+                                        <select name="ZIP Code" disabled value={billingzipCode} onChange={event => setBillingZipCode(event.target.value)} placeholder="ZIP Code">
+                                            <option selected="selected">ZIP Code:</option>
+                                            <option value="43223">43223</option>
+                                            <option value="523987">523987</option>
+                                            <option value="342342">342342</option>
+                                        </select>
+                                    </div>
+                                </>
+                        )
+                   
+                }
                     <input type="checkbox" id="ShippingSameBilling" className="box" sameAddres={sameAddres} onChange={event => setSameAddres(event.target.value)}/>
                     <label htmlFor="ShippingSameBilling">Use shipping addres same as billing address.</label>
                 </div>
@@ -134,7 +194,7 @@ function Form() {
                     <input type="checkbox" name="trackersOnBike"  tracksOnBike={tracksOnBike} onChange={event => setTracksOnBike(event.target.value)} className="box"/>Will any trackers be installed on a bike, truck or machinery?<br/>
                     <input type="checkbox" name="identifyDrivers" identifyDrivers={identifyDrivers} onChange={event => setIdentifyDrivers(event.target.value)} className="box"/>Will you need to identify the fleet drivers?<br/>
                     <div className="selecteds">
-                        <select  name="Trackers" value={trackersQuantities}  isDisabled={trackersQuantities} onChange={event => setTrackersQuantities(event.target.value)} placeholder="How many trackers would you like to purchase?">
+                        <select  name="Trackers" value={trackersQuantities}   onChange={event => setTrackersQuantities(event.target.value)} placeholder="How many trackers would you like to purchase?">
                             <option selected="selected">How many trackers would you like to purchase?</option>
                             <option value="0">0</option>
                             <option value="1">1</option>
