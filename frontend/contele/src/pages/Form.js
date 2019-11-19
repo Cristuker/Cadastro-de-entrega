@@ -1,4 +1,5 @@
 import React,{ useState } from 'react';
+import api from '../services/api';
 import './Form.css'
 function Form() {
     
@@ -36,6 +37,9 @@ function Form() {
 
     async function handleSubmit(event){
         event.preventDefault();
+
+        
+
         var Information ={
             name: name,
             lastname:lastname,
@@ -63,6 +67,7 @@ function Form() {
             trackersQuantities: trackersQuantities
         }    
         
+        await api.post('/',Information);
     }
 
     
