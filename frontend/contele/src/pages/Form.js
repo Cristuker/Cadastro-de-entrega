@@ -4,7 +4,7 @@ import './Form.css'
 
 
 
-function Form() {
+function Form({history}) {
 
     // Contact Information
     const [name,setName] = useState('');
@@ -62,12 +62,9 @@ function Form() {
             trackersQuantities: trackersQuantities
         }    
         
-        await api.post('/info',information)
-            .then(res => {
-                //console.log(res);
-                console.log(res);
-                
-            })
+        await api.post('/status',information)
+
+        history.push('/status')
     }
 
     

@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './assets/contele.png';
-import Form from './pages/Form'
+import Routes from './routes'
 import './App.css';
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
           <img src={logo} alt="Contele-logo" />  
         </div>
       </header>
-      <Form></Form>
+      <Routes></Routes>
     </div>
   );
 }
