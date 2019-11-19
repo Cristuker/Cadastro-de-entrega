@@ -6,6 +6,8 @@ const routes = express.Router();
 
 routes.get('/');
 
-routes.post('/info',FormController.StorageEvent);
+routes.post('/status',FormController.StorageEvent);
+
+routes.get('/status',FormController.index);
 
 module.exports = routes;
