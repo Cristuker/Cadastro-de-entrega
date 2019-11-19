@@ -4,6 +4,8 @@ const FormController = require('./controllers/FormController');
 
 const routes = express.Router();
 
-routes.get('/',FormController.StorageEvent);
+routes.get('/');
+
+routes.post('/info',FormController.StorageEvent);
 
 module.exports = routes;
