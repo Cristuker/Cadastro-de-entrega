@@ -1,10 +1,10 @@
 import React,{ useState } from 'react';
 import api from '../services/api';
 import './Form.css'
+
+
+
 function Form() {
-    
-   
-    
 
     // Contact Information
     const [name,setName] = useState('');
@@ -32,15 +32,10 @@ function Form() {
     const [identifyDrivers,setIdentifyDrivers] = useState(undefined);
     const [trackersQuantities,setTrackersQuantities] = useState();
 
-
-
-
     async function handleSubmit(event){
         event.preventDefault();
 
-        
-
-        var Information ={
+        let information ={
             name: name,
             lastname:lastname,
             email: email,
@@ -67,7 +62,12 @@ function Form() {
             trackersQuantities: trackersQuantities
         }    
         
-        await api.post('/',Information);
+        await api.post('/info',information)
+            .then(res => {
+                //console.log(res);
+                console.log(res);
+                
+            })
     }
 
     
@@ -200,13 +200,7 @@ function Form() {
                     <input type="checkbox" name="identifyDrivers" identifyDrivers={identifyDrivers} onChange={event => setIdentifyDrivers(event.target.value)} className="box"/>Will you need to identify the fleet drivers?<br/>
                     <div className="selecteds">
                         <select  name="Trackers" value={trackersQuantities}   onChange={event => setTrackersQuantities(event.target.value)} placeholder="How many trackers would you like to purchase?">
-                            <option selected="selected">How many trackers would you like to purchase?</option>
-                            <option value="0">0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
+                            {[0,1,2,3,4,].map(i => <option value={i}>{i}</option >)}
                         </select>
                     </div>
                 </div>

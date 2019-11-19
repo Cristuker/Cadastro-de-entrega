@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div id="logo">
-          <img src={logo} alt="" srcset="" />  
+          <img src={logo} alt="Contele-logo" />  
         </div>
       </header>
       <Form></Form>
