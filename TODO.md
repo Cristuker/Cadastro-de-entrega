@@ -1,4 +1,4 @@
-[x] - Recriar a página usando react
+[ ] - Recriar a página usando react
     [x] - HTML
     [x] - CSS
     [x] - Fonte
@@ -6,6 +6,7 @@
     [x] - Checkbox 
     [x] - Dimensões do Form e de alguns inputs
     [x] - Setar select default
+    [ ] - Estilizar avisos
 [ ] - Validar form com JS
 [ ] - Console Web
 [ ] - Fazer rotas da aplicação com NodeJS e express
