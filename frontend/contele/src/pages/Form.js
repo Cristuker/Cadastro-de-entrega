@@ -1,5 +1,5 @@
 import React from 'react';
-import { useFormik,Field,Form,Formik } from 'formik'
+import { useFormik,Field,Formik } from 'formik'
 import './Form.css'
 import api from '../services/api';
 
@@ -7,7 +7,7 @@ import api from '../services/api';
 const validate = values =>{
 
     const errors = {};
-    
+    //Contact 
     if(!values.name){
         errors.name = 'Required';
     }else if(!values.name.length > 15){
@@ -27,10 +27,70 @@ const validate = values =>{
 
     if(!values.phone){
         errors.phone = 'Required';
-    }else if(!values.phone.length > 9){
+    }else if(!values.phone.length < 9){
         errors.phone = 'Invalid number';
     }
+
+    if(!values.country){
+        errors.phone = 'Required';
+    }
+    if(!values.language){
+        errors.language = 'Required';
+    }
+
+    //Shipping addres
+    if(!values.addresShipping1){
+        errors.addresShipping1 = 'Required';
+    }else if(!values.addresShipping1.length > 30){
+        errors.addresShipping1 = 'Invalid shipping addres'
+    }
+
+    if(!values.addresShipping2){
+        errors.addresShipping2 = 'Required';
+    }else if(!values.addresShipping2.length > 30){
+        errors.addresShipping2 = 'Invalid shipping addres'
+    }
+
+    if(!values.shippingCity){
+        errors.shippingCity = 'Required'
+    }
+
+    if(!values.shippingState){
+        errors.shippingState = 'Required'
+    }
+
+    if(!values.shippingzipCode){
+        errors.shippingzipCode = 'Required'
+    }
+    //Billing Addres
+    if(values.sameAddres){
+
+    }else{
+        if(!values.addresBilling1){
+            errors.addresBilling1 = 'Required';
+        }else if(!values.addresBilling1.length > 30){
+            errors.addresBilling1 = 'Invalid shipping addres'
+        }
     
+        if(!values.addresBilling2){
+            errors.addresBilling2 = 'Required';
+        }else if(!values.addresBilling2.length > 30){
+            errors.addresBilling2 = 'Invalid shipping addres'
+        }
+    
+        if(!values.billingCity){
+            errors.billingCity = 'Required'
+        }
+    
+        if(!values.billingState){
+            errors.billingState = 'Required'
+        }
+        
+        if(!values.billingState){
+            errors.billingState = 'Required'
+        }
+    }
+
 
     return errors;
 }
@@ -97,12 +157,14 @@ return(
                             <option value="UnitedStates">United States</option>
                             <option value="Mexico">Mexico</option>
                         </Field>
+                        {formik.errors.country? <div className="required">{formik.errors.country}</div>:null}
                         <Field as="select" name="language" value={formik.values.language} onChange={formik.handleChange} id="language">
                             <option value="">Language:</option>
                             <option value="Português">Português</option>
                             <option value="English">English</option>
                             <option value="Espanhol">Espanhol</option>
                         </Field>
+                        {formik.errors.language? <div className="required">{formik.errors.language}</div>:null}
                     </div>
                 </div>
             </div>
@@ -115,26 +177,77 @@ return(
                     {formik.errors.addresShipping2? <div className="required">{formik.errors.addresShipping2}</div>:null}
                     <div className="selecteds">
                         <Field as="select" id="shippingCity" name="shippingCity" onChange={formik.handleChange} value={formik.values.shippingCity}>
-                            <option value={[]}>City:</option>
+                            <option value="">City:</option>
                             <option value="Guaruja">Guarujá</option>
                             <option value="Santos">Santos</option>
                             <option value="SaoVicente">São Vicente</option>
                         </Field>
                         {formik.errors.shippingCity? <div className="required">{formik.errors.shippingCity}</div>:null}
                         <Field as="select" id="shippingState" onChange={formik.handleChange} value={formik.values.shippingState} name="shippingState" >
-                            <option selected="selected">State:</option>
+                            <option value="">State:</option>
                             <option value="SP">São Paulo</option>
                             <option value="RJ">Rio de Janeiro</option>
                             <option value="ES">Espirito Santos</option>
                         </Field>
-                        <Field as="select" id="shippingZipCode" name="shippingZipCode" onChange={formik.handleChange} value={formik.values.shippingzipCode} >
+                        {formik.errors.shippingState? <div className="required">{formik.errors.shippingState}</div>:null}
+                        <Field as="select" id="shippingzipCode" name="shippingzipCode" onChange={formik.handleChange} value={formik.values.shippingzipCode} >
                             <option value="">ZIP Code:</option>
                             <option value="43223">43223</option>
                             <option value="523987">523987</option>
                             <option value="342342">342342</option>
                         </Field>
+                        {formik.errors.shippingzipCode? <div className="required">{formik.errors.shippingzipCode}</div>:null}
                     </div>
                 </div>
+            </div>
+            <div className="section">
+                <div id="Billing">
+                <h1>Billing Address:</h1>
+                    <Field type="text" className="inpuText" id="addresBilling1" onChange={formik.handleChange} value={formik.values.addresBilling1} placeholder="Addres Line1:"/>
+                    {formik.errors.addresBilling1? <div className="required">{formik.errors.addresBilling1}</div>:null}
+                    <Field type="text" className="inpuText" id="addresBilling2" onChange={formik.handleChange} value={formik.values.addresBilling2} placeholder="Addres Line2:"/>
+                    {formik.errors.addresBilling2? <div className="required">{formik.errors.addresBilling2}</div>:null}
+                    <Field as="select" id="billingCity" name="billingCity" value={formik.values.billingCity} onChange={formik.handleChange} >
+                        <option value="">City:</option>
+                        <option value="Guaruja">Guarujá</option>
+                        <option value="Santos">Santos</option>
+                        <option value="SaoVicente">São Vicente</option>
+                    </Field>
+                    {formik.errors.billingCity? <div className="required">{formik.errors.billingCity}</div>:null}
+                    <Field as="select" id="billingState" name="billingState" value={formik.values.billingState} onChange={formik.handleChange} >
+                        <option value="">State:</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="ES">Espirito Santos</option>
+                    </Field>
+                    {formik.errors.billingState? <div className="required">{formik.errors.billingState}</div>:null}
+                    <Field as="select" id="billingZipCode" name="billingZipCode" value={formik.values.billingZipCode} onChange={formik.handleChange} >
+                        <option value="">ZIP Code:</option>
+                        <option value="43223">43223</option>
+                        <option value="523987">523987</option>
+                        <option value="342342">342342</option>
+                    </Field>
+                    {formik.errors.billingZipCode? <div className="required">{formik.errors.billingZipCode}</div>:null}
+
+                    {formik.values.sameAddres ? <Field component="input"  checked type="checkbox" id="sameAddres" className="box" value={formik.values.sameAddres} onChange={formik.handleChange}/>:<Field component="input" type="checkbox" id="sameAddres" className="box" value={formik.values.sameAddres} onChange={formik.handleChange}/> }
+                    <label htmlFor="sameAddres"className="lbl">Use shipping addres same as billing address.</label>
+                </div>
+            </div>
+            <div className="section">
+                <div id="CheckBox">
+                    <h1>Check the box below:</h1>
+                    
+                    {formik.values.vehicleWithFuel?<Field component="input" type="checkbox" id="vehicleWithFuel"  className="box" checked  value={formik.values.vehicleWithFuel} onChange={formik.handleChange}  />:<Field component="input"  type="checkbox" id="vehicleWithFuel"  className="box" value={formik.values.vehicleWithFuel} onChange={formik.handleChange}  />}
+                    <label htmlFor="vehicleWithFuel"className="lbl">Does any vehicle need to be equiped with a fuel cut off device</label>
+                    {formik.values.tracksOnBike ? <Field component="input" type="checkbox" id="tracksOnBike" className="box" checked value={formik.values.tracksOnBike} onChange={formik.handleChange}/>:<Field component="input" type="checkbox" id="tracksOnBike" className="box" value={formik.values.tracksOnBike} onChange={formik.handleChange}/> }
+                    <label htmlFor="tracksOnBike"className="lbl">Will any trackers be installed on a bike, truck or machinery?</label>
+                    {formik.values.identifyDrivers ? <Field component="input" type="checkbox" id="identifyDrivers" className="box" checked value={formik.values.identifyDrivers} onChange={formik.handleChange}/>:<Field component="input" type="checkbox" id="identifyDrivers" className="box" value={formik.values.identifyDrivers} onChange={formik.handleChange}/>}
+                    <label htmlFor="identifyDrivers"className="lbl" >Will you need to identify the fleet drivers?</label>
+                    <Field  as="select" id="trackersQuantities" placeholder="" onChange={formik.handleChange} value={formik.values.shippingzipCode}>
+                            <option value="">How many trackers would you like to purchase?</option>
+                            {[0,1,2,3,4,].map(i => <option value={i}>{i}</option >)}
+                    </Field>
+               </div>
             </div>
             <button className="btn" type="submit">Order Now</button>
         </form>
