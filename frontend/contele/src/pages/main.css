@@ -1,0 +1,235 @@
+/*Reset*/
+
+*{
+  margin:0;
+  padding:0;
+}
+
+/*Geral*/
+
+form#container{
+  margin-top: 10px;
+  font-family: 'Lato', sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 100%;
+  height: 600px;
+  background-color: #f7f7f7;
+  
+}
+
+div.section{
+  flex: 1 1 49%;
+  height: 50%;
+}
+
+div.section  h1{
+  display: block;
+  margin-top:30px;
+  margin-left: 100px;
+  margin-bottom: -40px;
+  position: relative;
+  font-size: x-large;
+  color: #1a237a;
+
+}
+
+div.titulo{
+  width: 100%;
+  padding-bottom: 0px;
+  margin-bottom: 50px;
+}
+
+div.section select{
+  flex-direction: row;
+  display: flex;
+  background-color: white;
+  color: #b7b7b7;
+  border-radius: 5px;
+}
+
+/*Contact Information*/
+
+ div#Contact{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+div#Contact .inpuText{
+  width: 200px;
+  height: 35px;
+  margin: -50px 30px 5px 100px;
+  padding-left: 15px;
+  color: #b7b7b7;
+  border: 1px solid #b7b7b7; 
+  border-radius:10px;
+  flex: 1 1 30px;
+  flex-wrap: wrap;
+}
+
+
+
+
+/*Shipping Addres*/
+
+div#shipping{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+div#shipping .inpuText{
+  width: 100%;
+  flex: 1 1 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 35px;
+  margin: -10px 100px 5px 100px;
+  padding-left: 15px;
+  color: #b7b7b7;
+  border: 1px solid #b7b7b7; 
+  border-radius:10px;
+}
+div#shipping div.selecteds{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+div#shipping .shippingSelect{
+  flex: 0 1 100px;
+  height: 35px;
+  margin: 5px -35px 10px 100px;
+  padding-left: 15px;
+  padding-right:40px ;
+  color: #b7b7b7;
+  border: 1px solid #b7b7b7; 
+  border-radius:10px;
+
+}
+
+
+/*Billing Addres*/
+
+
+div#Billing{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+div#Billing .inpuText{
+  width: 100%;
+  flex: 0 1 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 35px;
+  margin: -10px 30px 5px 100px;
+  padding-left: 15px;
+  color: #b7b7b7;
+  border: 1px solid #b7b7b7; 
+  border-radius:10px;
+}
+div#Billing div.selecteds{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+div#Billing .billingSelect{
+  flex: 0 1 100px;
+  height: 35px;
+  margin: 5px 0px 10px 100px;
+  padding-left: 15px;
+  padding-right:40px ;
+  color: #b7b7b7;
+  border: 1px solid #b7b7b7; 
+  border-radius:10px;
+
+}
+ 
+/*CheckBox*/
+
+div#CheckBox{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+div#CheckBox input.alignBox{
+font-size: small;
+}
+
+div#CheckBox #trackersQuantities{
+  width: 100%;
+  margin: 5px 100px 20px 100px;
+}
+
+/*CustomCheckbox*/
+
+input.box{
+  display: none;
+}
+
+label.lbl{
+
+  color: #b7b7b7;
+  cursor: pointer;
+  font-size: 20px;
+  display: block;
+  position: relative;
+  margin-left: 100px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 35px;
+}
+
+input:checked + label.lbl::after{
+  background-color: #1a237a;
+}
+
+label.lbl::before,
+label.lbl::after{
+  content: "";
+  display: inline-block;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+label.lbl::after{
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  left: 3px;
+  top: 1.5px;
+}
+
+label.lbl::before{
+  
+  border: 1px solid #b7b7b7;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 0px;
+  top: -1.5px;
+}
+
+/*Placeholder color*/
+::-webkit-input-placeholder{
+    color:#b7b7b7;
+}
+
+/*Required*/
+div.required{
+  width: 0%;
+  text-align: center;
+  justify-items: center;
+  height:20px;
+  padding: 0;
+  margin:0;
+  font-size:10px;
+  color: red;
+}
+
