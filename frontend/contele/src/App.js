@@ -11,7 +11,10 @@ function App() {
           <img src={logo} alt="Contele-logo" />  
         </div>
       </header>
-      <Routes></Routes>
+      <div id="component">
+        <Routes></Routes>
+      </div>
+      
     </div>
   );
 }
