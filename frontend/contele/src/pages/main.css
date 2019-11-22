@@ -1,5 +1,4 @@
 /*Reset*/
-
 *{
   margin:0;
   padding:0;
@@ -16,7 +15,6 @@ form#container{
   max-width: 100%;
   height: 600px;
   background-color: #f7f7f7;
-  
 }
 
 div.section{
@@ -32,7 +30,6 @@ div.section  h1{
   position: relative;
   font-size: x-large;
   color: #1a237a;
-
 }
 
 div.titulo{
@@ -51,7 +48,7 @@ div.section select{
 
 /*Contact Information*/
 
- div#Contact{
+div#Contact{
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -65,12 +62,9 @@ div#Contact .inpuText{
   color: #b7b7b7;
   border: 1px solid #b7b7b7; 
   border-radius:10px;
-  flex: 1 1 30px;
+  flex: 1 1 100px;
   flex-wrap: wrap;
 }
-
-
-
 
 /*Shipping Addres*/
 
@@ -86,12 +80,13 @@ div#shipping .inpuText{
   flex-direction: row;
   flex-wrap: wrap;
   height: 35px;
-  margin: -10px 100px 5px 100px;
+  margin: -30px 100px 5px 100px;
   padding-left: 15px;
   color: #b7b7b7;
   border: 1px solid #b7b7b7; 
   border-radius:10px;
 }
+
 div#shipping div.selecteds{
   display: flex;
   flex-wrap: wrap;
@@ -110,9 +105,7 @@ div#shipping .shippingSelect{
 
 }
 
-
 /*Billing Addres*/
-
 
 div#Billing{
   display: flex;
@@ -132,6 +125,7 @@ div#Billing .inpuText{
   border: 1px solid #b7b7b7; 
   border-radius:10px;
 }
+
 div#Billing div.selecteds{
   display: flex;
   flex-wrap: wrap;
@@ -147,7 +141,6 @@ div#Billing .billingSelect{
   color: #b7b7b7;
   border: 1px solid #b7b7b7; 
   border-radius:10px;
-
 }
  
 /*CheckBox*/
@@ -159,7 +152,7 @@ div#CheckBox{
 }
 
 div#CheckBox input.alignBox{
-font-size: small;
+  font-size: small;
 }
 
 div#CheckBox #trackersQuantities{
@@ -174,15 +167,12 @@ input.box{
 }
 
 label.lbl{
-
   color: #b7b7b7;
   cursor: pointer;
   font-size: 20px;
   display: block;
   position: relative;
-  margin-left: 100px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px 100px 10px 100px;
   padding-left: 35px;
 }
 
@@ -207,7 +197,6 @@ label.lbl::after{
 }
 
 label.lbl::before{
-  
   border: 1px solid #b7b7b7;
   width: 30px;
   height: 30px;
@@ -233,3 +222,19 @@ div.required{
   color: red;
 }
 
+/*button*/
+form button.btn{
+  display:block;
+  margin-left: auto;
+  width: 400px;
+  text-decoration: none;
+ 
+  border: 1px solid white;
+  font-size: 16px;
+  color: white;
+  background-color:#1a237a;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 15px 100px;
+  margin-right: 100px;
+}

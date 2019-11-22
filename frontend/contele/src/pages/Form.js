@@ -127,8 +127,10 @@ const formik = useFormik({
 
     },
     validate,
-    onSubmit: values => {
-        alert(JSON.stringify(values,null,2))
+    onSubmit: async values => {
+        await api.post('/status',values)
+        
+        history.push('/status')
     }
 })
 
@@ -149,124 +151,128 @@ return(
     <Formik>
         <form onSubmit={formik.handleSubmit} id="container">
             <div className="section"id="Contact">
-                    <div className="titulo">
-                        <h1>Contact Information:</h1>
-                    </div>
-                    <Field type="name" style={setStatus(formik.errors.name, 'name')} className="inpuText" id="name" onChange={formik.handleChange} value={formik.values.name} placeholder="First Name:" />
+                <div className="titulo">
+                    <h1>Contact Information:</h1>
+                </div>
+                <Field type="name" style={setStatus(formik.errors.name, 'name')} className="inpuText" id="name" onChange={formik.handleChange} value={formik.values.name} placeholder="First Name:" />
                     
-                    <Field type="text" style={setStatus(formik.errors.lastname, 'lastname')} className="inpuText" id="lastname" onChange={formik.handleChange} value={formik.values.lastname} placeholder="Last Name:"/>
+                <Field type="text" style={setStatus(formik.errors.lastname, 'lastname')} className="inpuText" id="lastname" onChange={formik.handleChange} value={formik.values.lastname} placeholder="Last Name:"/>
                     
-                    <Field type="email" style={setStatus(formik.errors.email, 'email')} className="inpuText" id="email" onChange={formik.handleChange} value={formik.values.email} placeholder="Email Adress:"/>
+                <Field type="email" style={setStatus(formik.errors.email, 'email')} className="inpuText" id="email" onChange={formik.handleChange} value={formik.values.email} placeholder="Email Adress:"/>
                         
-                    <Field type="tel" style={setStatus(formik.errors.phone, 'phone')} className="inpuText" id="phone" onChange={formik.handleChange} value={formik.values.phone} placeholder="Phone:"/>
+                <Field type="tel" style={setStatus(formik.errors.phone, 'phone')} className="inpuText" id="phone" onChange={formik.handleChange} value={formik.values.phone} placeholder="Phone:"/>
                     
-                    <Field as="select" style={setStatus(formik.errors.country, 'country')} className="inpuText" id="country" name="country" value={formik.values.country} onChange={formik.handleChange} >
-                        <option value="">Country:</option>
-                        <option value="Brazil">Brazil</option>
-                        <option value="UnitedStates">United States</option>
-                        <option value="Mexico">Mexico</option>
-                    </Field>
+                <Field as="select" style={setStatus(formik.errors.country, 'country')} className="inpuText" id="country" name="country" value={formik.values.country} onChange={formik.handleChange} >
+                    <option value="">Country:</option>
+                    <option value="Brazil">Brazil</option>
+                    <option value="UnitedStates">United States</option>
+                    <option value="Mexico">Mexico</option>
+                </Field>
                     
-                    <Field as="select" style={setStatus(formik.errors.language, 'language')} className="inpuText" id="language" name="language" value={formik.values.language} onChange={formik.handleChange}>
-                        <option value="">Language:</option>
-                        <option value="Português">Português</option>
-                        <option value="English">English</option>
-                        <option value="Espanhol">Espanhol</option>
-                    </Field>
+                <Field as="select" style={setStatus(formik.errors.language, 'language')} className="inpuText" id="language" name="language" value={formik.values.language} onChange={formik.handleChange}>
+                    <option value="">Language:</option>
+                    <option value="Português">Português</option>
+                    <option value="English">English</option>
+                    <option value="Espanhol">Espanhol</option>
+                </Field>
             </div>
 
             <div className="section"id="shipping">
                 <div className="titulo">
                     <h1>Shipping Address:</h1>
                 </div>
-                    <Field type="text" style={setStatus(formik.errors.addresShipping1, 'addresShipping1')} className="inpuText" name="addresShipping1"  id="addresShipping1" onChange={formik.handleChange} value={formik.values.addresShipping1} placeholder="Addres Line1:"/>
+                <Field type="text" style={setStatus(formik.errors.addresShipping1, 'addresShipping1')} className="inpuText" name="addresShipping1"  id="addresShipping1" onChange={formik.handleChange} value={formik.values.addresShipping1} placeholder="Addres Line1:"/>
                     
-                    <Field type="text" style={setStatus(formik.errors.addresShipping2, 'addresShipping2')} className="inpuText" name="addresShipping2" id="addresShipping2"  onChange={formik.handleChange} value={formik.values.addresShipping2} placeholder="Addres Line2:"/>
+                <Field type="text" style={setStatus(formik.errors.addresShipping2, 'addresShipping2')} className="inpuText" name="addresShipping2" id="addresShipping2"  onChange={formik.handleChange} value={formik.values.addresShipping2} placeholder="Addres Line2:"/>
                     
-                    <div className="selecteds">
-                        <Field as="select" style={setStatus(formik.errors.shippingCity, 'shippingCity')} className=" shippingSelect" name="shippingCity" id="shippingCity" onChange={formik.handleChange} value={formik.values.shippingCity}>
-                            <option value="">City:</option>
-                            <option value="Guaruja">Guarujá</option>
-                            <option value="Santos">Santos</option>
-                            <option value="SaoVicente">São Vicente</option>
-                        </Field>
-                        
-                        <Field as="select" style={setStatus(formik.errors.shippingState, 'shippingState')} className=" shippingSelect" name="shippingState" id="shippingState" onChange={formik.handleChange} value={formik.values.shippingState} >
-                            <option value="">State:</option>
-                            <option value="SP">São Paulo</option>
-                            <option value="RJ">Rio de Janeiro</option>
-                            <option value="ES">Espirito Santos</option>
-                        </Field>
-
-                        <Field as="select" style={setStatus(formik.errors.shippingzipCode, 'shippingzipCode')} className=" shippingSelect" name="shippingzipCode" id="shippingzipCode" onChange={formik.handleChange} value={formik.values.shippingzipCode} >
-                            <option value="">ZIP Code:</option>
-                            <option value="43223">43223</option>
-                            <option value="523987">523987</option>
-                            <option value="342342">342342</option>
-                        </Field>
-                    </div>
-                
-            </div>
-            
-            <div className="section"id="Billing">
-                <div className="titulo">
-                    <h1>Billing Address:</h1>
-                </div>
-                    <Field type="text" style={setStatus(formik.errors.addresBilling1, 'addresBilling1')} className="inpuText" name="addresBilling1" id="addresBilling1" onChange={formik.handleChange} value={formik.values.addresBilling1} {formik.values.sameAddres ? disabled: null} placeholder="Addres Line1:"/>
-
-                    <Field type="text" style={setStatus(formik.errors.addresBilling2, 'addresBilling2')} className="inpuText" name="addresBilling2" id="addresBilling2" onChange={formik.handleChange} value={formik.values.addresBilling2} placeholder="Addres Line2:"/>
-                    
-                    <div className="selecteds">
-                    <Field  as="select" style={setStatus(formik.errors.billingCity, 'billingCity')} className="billingSelect" name="billingCity" id="billingCity" value={formik.values.billingCity} onChange={formik.handleChange} >
+                <div className="selecteds">
+                    <Field as="select" style={setStatus(formik.errors.shippingCity, 'shippingCity')} className=" shippingSelect" name="shippingCity" id="shippingCity" onChange={formik.handleChange} value={formik.values.shippingCity}>
                         <option value="">City:</option>
                         <option value="Guaruja">Guarujá</option>
                         <option value="Santos">Santos</option>
                         <option value="SaoVicente">São Vicente</option>
                     </Field>
-                    
-                    <Field as="select" style={setStatus(formik.errors.billingState, 'billingState')} className="billingSelect" name="billingState" id="billingState" value={formik.values.billingState} onChange={formik.handleChange} >
+                        
+                    <Field as="select" style={setStatus(formik.errors.shippingState, 'shippingState')} className=" shippingSelect" name="shippingState" id="shippingState" onChange={formik.handleChange} value={formik.values.shippingState} >
                         <option value="">State:</option>
                         <option value="SP">São Paulo</option>
                         <option value="RJ">Rio de Janeiro</option>
                         <option value="ES">Espirito Santos</option>
                     </Field>
-                    
-                    <Field as="select" style={setStatus(formik.errors.billingState, 'billingState')} className="billingSelect" name="billingZipCode" id="billingZipCode" value={formik.values.billingZipCode} onChange={formik.handleChange} >
+
+                    <Field as="select" style={setStatus(formik.errors.shippingzipCode, 'shippingzipCode')} className=" shippingSelect" name="shippingzipCode" id="shippingzipCode" onChange={formik.handleChange} value={formik.values.shippingzipCode} >
                         <option value="">ZIP Code:</option>
                         <option value="43223">43223</option>
                         <option value="523987">523987</option>
                         <option value="342342">342342</option>
                     </Field>
-                    
-                    </div>
-                    {formik.values.sameAddres ? <Field component="input" checked type="checkbox" id="sameAddres" className="box" value={formik.values.sameAddres} onChange={formik.handleChange}/>:<Field component="input" type="checkbox" id="sameAddres" className="box" value={formik.values.sameAddres} onChange={formik.handleChange}/> }
-                    <label htmlFor="sameAddres"className="lbl">Use shipping addres same as billing address.</label>
+                </div>
                 
             </div>
             
-            <div className="section"id="CheckBox">
-                    <div className="titulo">
-                        <h1>Check the box below:</h1>
-                    </div>
-                    {formik.values.vehicleWithFuel?<Field component="input" type="checkbox" id="vehicleWithFuel"  className="box alignBox" checked  value={formik.values.vehicleWithFuel} onChange={formik.handleChange}  />:<Field component="input"  type="checkbox" id="vehicleWithFuel"  className="box" value={formik.values.vehicleWithFuel} onChange={formik.handleChange}  />}
-                    <label htmlFor="vehicleWithFuel"className="lbl">Does any vehicle need to be equiped with a fuel cut off device</label>
-                    {formik.values.tracksOnBike ? <Field component="input" type="checkbox" id="tracksOnBike" className="box alignBox" checked value={formik.values.tracksOnBike} onChange={formik.handleChange}/>:<Field component="input" type="checkbox" id="tracksOnBike" className="box" value={formik.values.tracksOnBike} onChange={formik.handleChange}/> }
-                    <label htmlFor="tracksOnBike"className="lbl">Will any trackers be installed on a bike, truck or machinery?</label>
-                    {formik.values.identifyDrivers ? <Field component="input" type="checkbox" id="identifyDrivers" className="box alignBox" checked value={formik.values.identifyDrivers} onChange={formik.handleChange}/>:<Field component="input" type="checkbox" id="identifyDrivers" className="box" value={formik.values.identifyDrivers} onChange={formik.handleChange}/>}
-                    <label htmlFor="identifyDrivers"className="lbl" >Will you need to identify the fleet drivers?</label>
+            <div className="section"id="Billing">
+
+                <div className="titulo">
+                    <h1>Billing Address:</h1>
+                </div>
+
+                <Field type="text" style={setStatus(formik.errors.addresBilling1, 'addresBilling1')} className="inpuText" name="addresBilling1" id="addresBilling1" onChange={formik.handleChange} value={formik.values.addresBilling1} {...formik.values.sameAddres ? 'disabled': null} placeholder="Addres Line1:"/>
+
+                <Field type="text" style={setStatus(formik.errors.addresBilling2, 'addresBilling2')} className="inpuText" name="addresBilling2" id="addresBilling2" onChange={formik.handleChange} value={formik.values.addresBilling2} placeholder="Addres Line2:"/>
                     
-                    <Field  as="select" id="trackersQuantities" placeholder="" onChange={formik.handleChange} value={formik.values.shippingzipCode}>
-                            <option value="">How many trackers would you like to purchase?</option>
-                            {[0,1,2,3,4,].map(i => <option value={i}>{i}</option >)}
-                    </Field>
-               
+                <div className="selecteds">
+                <Field  as="select" style={setStatus(formik.errors.billingCity, 'billingCity')} className="billingSelect" name="billingCity" id="billingCity" value={formik.values.billingCity} onChange={formik.handleChange} >
+                    <option value="">City:</option>
+                    <option value="Guaruja">Guarujá</option>
+                    <option value="Santos">Santos</option>
+                    <option value="SaoVicente">São Vicente</option>
+                </Field>
+                    
+                <Field as="select" style={setStatus(formik.errors.billingState, 'billingState')} className="billingSelect" name="billingState" id="billingState" value={formik.values.billingState} onChange={formik.handleChange} >
+                    <option value="">State:</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="ES">Espirito Santos</option>
+                </Field>
+                    
+                <Field as="select" style={setStatus(formik.errors.billingState, 'billingState')} className="billingSelect" name="billingZipCode" id="billingZipCode" value={formik.values.billingZipCode} onChange={formik.handleChange} >
+                    <option value="">ZIP Code:</option>
+                    <option value="43223">43223</option>
+                    <option value="523987">523987</option>
+                    <option value="342342">342342</option>
+                </Field>
+                    
+                </div>
+                {formik.values.sameAddres ? <Field component="input" checked type="checkbox" id="sameAddres" className="box" value={formik.values.sameAddres} onChange={formik.handleChange}/>:<Field component="input" type="checkbox" id="sameAddres" className="box" value={formik.values.sameAddres} onChange={formik.handleChange}/> }
+                <label htmlFor="sameAddres"className="lbl">Use shipping addres same as billing address.</label>
             </div>
             
-            {/*<button className="btn" type="submit">Order Now</button>*/}
+            <div className="section"id="CheckBox">
+                <div className="titulo">
+                    <h1>Check the box below:</h1>
+                </div>
+                    
+                {formik.values.vehicleWithFuel?<Field component="input" type="checkbox" id="vehicleWithFuel"  className="box alignBox" checked  value={formik.values.vehicleWithFuel} onChange={formik.handleChange}  />:<Field component="input"  type="checkbox" id="vehicleWithFuel"  className="box" value={formik.values.vehicleWithFuel} onChange={formik.handleChange}  />}
+                <label htmlFor="vehicleWithFuel"className="lbl">Does any vehicle need to be equiped with a fuel cut off device</label>
+                    
+                {formik.values.tracksOnBike ? <Field component="input" type="checkbox" id="tracksOnBike" className="box alignBox" checked value={formik.values.tracksOnBike} onChange={formik.handleChange}/>:<Field component="input" type="checkbox" id="tracksOnBike" className="box" value={formik.values.tracksOnBike} onChange={formik.handleChange}/> }
+                <label htmlFor="tracksOnBike"className="lbl">Will any trackers be installed on a bike, truck or machinery?</label>
+                    
+                {formik.values.identifyDrivers ? <Field component="input" type="checkbox" id="identifyDrivers" className="box alignBox" checked value={formik.values.identifyDrivers} onChange={formik.handleChange}/>:<Field component="input" type="checkbox" id="identifyDrivers" className="box" value={formik.values.identifyDrivers} onChange={formik.handleChange}/>}
+                <label htmlFor="identifyDrivers"className="lbl" >Will you need to identify the fleet drivers?</label>
+                    
+                <Field  as="select" id="trackersQuantities" placeholder="" onChange={formik.handleChange} value={formik.values.trackersQuantities}>
+                    <option value="">How many trackers would you like to purchase?</option>
+                    {[0,1,2,3,4,].map(i => <option value={i}>{i}</option >)}
+                </Field>
+            </div>
+            
+            <button className="btn" type="submit">Order Now</button>
+        
         </form>
     </Formik>
-    )//return
-}//function
+    )
+}
 
 
 export default FormOrder;
