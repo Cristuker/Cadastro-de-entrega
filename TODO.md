@@ -13,4 +13,4 @@
 [x] - validação da quantidade de trackers
 [x] - Fazer o botão de ORDER
 [x] - Revisar todo o código
-[ ] - Fazer um Readme - Falar onde ver os dados do backend
+[x] - Fazer um Readme 
