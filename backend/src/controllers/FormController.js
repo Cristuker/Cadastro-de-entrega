@@ -1,4 +1,3 @@
-const Form = require('../models/Form');
 
 module.exports={
     async StorageEvent(request,response){
@@ -22,8 +21,7 @@ module.exports={
             billingCity: request.body.billingCity === 'City:' ? '' : request.body.billingCity,
             billingState: request.body.billingState === 'State:' ? '' :request.body.billingState,
             billingzipCode: request.body.billingzipCode === 'ZIP Code:' ? '' :request.body.billingState,
-            sameAddres: request.body.sameAddres,
-            
+            sameAddres: request.body.sameAddres
 
         }
 
@@ -33,11 +31,25 @@ module.exports={
             identifyDrivers: request.body.identifyDrivers,
             trackersQuantities: request.body.trackersQuantities
         }
+
+        if(OrderInfo.sameAddres){
+            OrderInfo.addresBilling1 = OrderInfo.addresShipping1;
+            OrderInfo.addresBilling2 = OrderInfo.addresShipping2;
+            OrderInfo.billingCity = OrderInfo.shippingCity;
+            OrderInfo.billingState = OrderInfo.shippingState;
+            OrderInfo.billingzipCode = OrderInfo.shippingzipCode;
+        }
+
+        if(!BoxInfo.identifyDrivers){
+            BoxInfo.trackersQuantities = 0;
+        }
+
         let ArrayInfo = Object.values(OrderInfo)
         let Fields = Object.entries(OrderInfo)
 
         let missing = [];
         let valid = [];
+
         ArrayInfo.forEach((element,index) => {
             if(element === undefined | element === '' | element === 0){
                 missing.push(Fields[index])
@@ -56,10 +68,5 @@ module.exports={
         
     return response.json(OrderInfo);
 
-    },
-    async index(request,response){
-        const info = response;
-        console.log(info)
-        return response.json(info); 
     }
 }

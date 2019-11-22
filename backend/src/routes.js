@@ -8,6 +8,4 @@ routes.get('/');
 
 routes.post('/status',FormController.StorageEvent);
 
-routes.get('/status',FormController.index);
-
 module.exports = routes;
