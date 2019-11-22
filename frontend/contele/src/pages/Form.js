@@ -1,5 +1,5 @@
 import React from 'react';
-import { useFormik,Field,Formik,getIn } from 'formik'
+import { useFormik,Field,Formik } from 'formik'
 import './main.css'
 import api from '../services/api';
 
@@ -130,7 +130,6 @@ const formik = useFormik({
     onSubmit: async values => {
         await api.post('/status',values)
         
-        history.push('/status')
     }
 })
 
@@ -263,7 +262,7 @@ return(
                     
                 <Field  as="select" id="trackersQuantities" placeholder="" onChange={formik.handleChange} value={formik.values.trackersQuantities}>
                     <option value="">How many trackers would you like to purchase?</option>
-                    {[0,1,2,3,4,].map(i => <option value={i}>{i}</option >)}
+                    {[0,1,2,3,4,].map(i => <option key={i} value={i}>{i}</option >)}
                 </Field>
             </div>
             
