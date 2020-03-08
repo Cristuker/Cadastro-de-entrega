@@ -4,8 +4,8 @@ Teste de NodeJS-Junior da Contele(http://www.contele.com.br/)
 
 ### Tenha instalado
 
--Yarn
--NPM
+-Yarn <br>
+-NPM <br>
 -NodeJS
 
 ## Para rodar 
