@@ -2,21 +2,50 @@
 
 Teste de NodeJS-Junior da Contele(http://www.contele.com.br/)
 
+### Tecnologias
+
+- [Yarn](https://yarnpkg.com/)
+- [NodeJS](https://nodejs.org/)
+- [ReactJS](https://pt-br.reactjs.org/)
+- [Formik](https://jaredpalmer.com/formik/)
+- [Express](https://expressjs.com/pt-br/)
+- [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+- [axios](https://www.npmjs.com/package/axios)
+
+
 ### Tenha instalado
 
--Yarn <br>
--NPM <br>
--NodeJS
+- Yarn 
+- NPM 
+- NodeJS
 
 ## Para rodar 
 
--Clone esse repositorio
+### Backend
+- Clone esse repositorio
 
--Acesse a pasta backend e rode o comando ``` npm install ``` e para rodar o backend
-digite ``` yarn dev ``` dentro da pasta backend
+- Acesse a pasta backend e rode o comando abaixo para instalar as dependências do projeto
+```bash 
+$ npm install 
+``` 
 
--Acesse a pasta frontend e depois a pasta contele e rode o comando ``` npm install ```
-e para rodar a página ``` yarn start ```
+e então digite 
+```bash 
+$ yarn dev 
+``` 
+dentro da pasta backend para rodar o projeto
+
+### Frontend
+
+* Acesse a pasta frontend e depois a pasta contele e rode o comando 
+```bash 
+$ npm install 
+```
+para instalar as dependências e então 
+```bash 
+$ yarn start 
+```
+para rodar a página 
  
 ## Funcionamento
   
@@ -27,3 +56,6 @@ e para rodar a página ``` yarn start ```
   no arquivo FormController e enviar uma response em .json, nesse momento todas as informações
   recebidas por parametros serão mostradas no terminal onde está rodando o servidor backend.
 
+---
+
+<p align="center">Made whit ❤️ by <strong><a href="http://linkedin.com/in/cristian-silva-dev" target="blank" >Cristian</></p></strong>
