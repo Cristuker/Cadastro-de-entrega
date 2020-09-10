@@ -1,6 +1,6 @@
-# test-NodeJSJunior
+# Cadastro de entrega
 
-Teste de NodeJS-Junior da Contele(http://www.contele.com.br/)
+Cadastro de entrega
 
 ### Tecnologias
 
@@ -25,27 +25,31 @@ Teste de NodeJS-Junior da Contele(http://www.contele.com.br/)
 - Clone esse repositorio
 
 - Acesse a pasta backend e rode o comando abaixo para instalar as dependências do projeto
+
 ```bash 
-$ npm install 
+# Instale as dependencias
+$ yarn
 ``` 
 
-e então digite 
 ```bash 
+# Para rodar o projeto
 $ yarn dev 
 ``` 
-dentro da pasta backend para rodar o projeto
 
 ### Frontend
 
 * Acesse a pasta frontend e depois a pasta contele e rode o comando 
+
 ```bash 
-$ npm install 
+# Instale as dependencias
+$ yarn
 ```
-para instalar as dependências e então 
+  
 ```bash 
+# Para rodar o frontend 
 $ yarn start 
 ```
-para rodar a página 
+
  
 ## Funcionamento
   
